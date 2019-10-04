@@ -1,7 +1,7 @@
 // keys and other dependencies
 require('dotenv').config();
 const
-axios = require('axios')
+axios = require('axios'),
 moment =require('moment'),
 Spotify = require('node-spotify-api'),
 fs = require('fs'),
@@ -44,17 +44,54 @@ LIRI = function() {
 
   };
 
+  this.movieThis = function(movie) {
+    let 
+    key = process.env.OMDB_KEY,
+    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie&`;
+
+    axios({
+      method: 'get',
+      url,
+      responseType: 'json'
+    })
+    .then(function (response) {
+      title = [
+        moment().format()
+      ].join('\n'),
+      showData = [
+        'Title: ' + response['data']['Title'],
+        'Year: ' + response['data']['Year'],
+        'IMDB Rating: ' + response['data']['Ratings'][0]['Value'],
+        'Rotten Tomato\'s: ' + response['data']['Ratings'][0]['Value'],
+        'Maded in: ' + response['data']['Country'],
+        'Plot: ' + response['data']['Plot'],
+        'Cast: ' + response['data']['Actors']
+       
+      ].join('\n\n');
+         
+      fs.appendFile('log.txt', title + showData + divider, (error) => {
+        if(error) {
+          console.log(err)
+        } else {console.log(`Added to log:\n${showData}`);}
+      })
+      })
+    .catch(function(error) {
+      console.log(error)
+    });
+  }
 
   this.concertThis = (band) => {};
-  this.movieThis = (movie) => {};
+
+    //    If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
+    //    If you haven't watched "Mr. Nobody," then you should: <http://www.imdb.com/title/tt0485947/>
+    // ​
+    //    It's on Netflix!
+  
+  
   this.doWhatItSays = (what) => {};
 
+  
 }
 
-
-let liri = new LIRI
-module.exports = liri;
-
-
-
-
+let liri = new LIRI;
+module.exports = liri
