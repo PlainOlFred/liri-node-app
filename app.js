@@ -1,55 +1,60 @@
 // import modules and keys
-require('dotenv').config();
-
 const 
-axios = require('axios'),
 moment = require('moment'),
 fs = require('fs'),
-Spotify = require('node-spotify-api'),
-[cmd, qus] = process.argv.slice(2);
+[cmd, qus] = [process.argv[2], process.argv.splice(3).join('%20')];
 
-switch(cmd) {
+console.log(qus)
 
-  case 'concert-this': 
-    console.log(cmd, qus);
-    concertThis();
-    break;
 
-  case 'spotify-this-song':
-    spotifyThisSong();
-    break;
-
-  case 'movie-this':
-    movieThis();
-    break;
-
-  case 'do-what-it-says':
-    doWhatItSays();
-    break;
-
+if(cmd){
+  switch(cmd) {
+    case 'concert-this': 
+      console.log(cmd);
+      concertThis();
+      break;
+  
+    case 'spotify-this-song':
+      console.log(cmd);
+      break;
+  
+    case 'movie-this':
+        console.log(cmd);
+      break;
+  
+    case 'do-what-it-says':
+      doWhatItSays();
+      break;
+    default:
+      console.log('not a command')
+  }
 }
+
 
   
 
-const spotify = new Spotify({
-  id: process.env.CLIENT_ID,
-  secret: process.env.SECRET
-});
+function concertThis(qus) {
 
-spotify
-  .request('https://api.spotify.com/v1/search?q=rush&type=artist&limit=1')
+}
+function spotifyThisSong() {
+  console.log('in function' + qus)
+  spotify
+  .request(`https://api.spotify.com/v1/search?q=${qus}&type=track,artist&limit=1`)
   .then(function(data) {
-    const smallData = { data }  
-      ['data']['artists']['items']
+    const smallData = data
+      ['tracks']  
+      
     console.log(smallData); 
   })
   .catch(function(err) {
     console.error('Error occurred: ' + err); 
   });
-function concertThis(qus) {
 
-}
-function spotifyThisSong(qus) {
+  // * Artist(s)
+  // * The song's name
+  // * A preview link of the song from Spotify
+  // * The album that the song is from
+  // * If no song is provided then your program will default to "The Sign" by Ace of Base.
 
 }
 function movieThis(qus) {
