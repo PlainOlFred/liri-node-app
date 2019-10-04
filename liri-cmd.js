@@ -18,9 +18,11 @@ LIRI = function() {
     .request(`https://api.spotify.com/v1/search?q=${song}&type=track,artist&limit=1`)
     .then(function(data) {
       const 
-      title = moment(),
       smallData = data
-        ['tracks']['items'][0],
+      ['tracks']['items'][0],
+      title = [
+        moment().format()
+      ].join('\n'),
       showData = [
         'Artist(s): ' + smallData['artists'][0]['name'],
         'Song: ' + smallData['name'],
@@ -50,8 +52,8 @@ LIRI = function() {
 }
 
 
-let test = new LIRI;
-test.spotifyThisSong('stan')
+let liri = new LIRI
+module.exports = liri;
 
 
 
