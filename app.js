@@ -5,9 +5,6 @@ fs = require('fs'),
 liri = require('./liri-cmd'),
 [cmd, qus] = [process.argv[2], process.argv.splice(3).join('%20')];
 
-
-
-
 if(cmd){
   switch(cmd) {
     case 'concert-this': 
@@ -22,6 +19,7 @@ if(cmd){
   
     case 'movie-this':
         console.log(cmd);
+        liri.movieThis(qus)
       break;
   
     case 'do-what-it-says':
