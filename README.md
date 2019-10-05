@@ -8,17 +8,17 @@
 
 * [x] Search Song
 
-      * [x] ] [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
+      * [x] Request response node-spotify-
 
       * [x] Displays default song 
       
 * [x] Search Movie
 
-      * [x] [OMDB API](http://www.omdbapi.com/)
+      * [x] Resquest response from OMDB 
 
       * [x] Displays default movie
 
-      * [x] Sugest a movie
+      * [x] Suggest a movie
 
 * [x] Search Concert
 
@@ -26,6 +26,19 @@
 
 ## Developmental features
 * [ ] 
+
+## (#Prerequisite)
+
+  - [DotEnv](https://www.npmjs.com/package/dotenv)
+
+  - [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
+
+  - [Axios](https://www.npmjs.com/package/axios)
+
+  - [OMDB API](http://www.omdbapi.com/)
+
+  -[Moment](https://www.npmjs.com/package/moment)
+  
 
 ## Usage
 
@@ -37,21 +50,24 @@
     * Bands in Town
   
   3. Set defaults in app.js
-
     * Movie Deafault 
 
-    ```
-    else {
-          //Set Default
-          liri.movieThis('mr+nobody');
-          // <http://www.imdb.com/title/tt0485947/>
-          console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
-        };
-    ```
+  ```
+  else {
+        //Set Default
+        liri.movieThis('mr+nobody');
+        // <http://www.imdb.com/title/tt0485947/>
+        console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
+      };
+  ```
 
     * Song Deafault
 
-    ```
-    ```
+  ```
+  ```
+
+  4. Install node packages (links [above](##Prerequisite))
+
+    * axois
 
 ## Example
