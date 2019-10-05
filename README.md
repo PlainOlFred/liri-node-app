@@ -27,17 +27,17 @@
 ## Developmental features
 * [ ] 
 
-## (#Prerequisite)
+## Prerequisites
 
-  - [DotEnv](https://www.npmjs.com/package/dotenv)
+   - [DotEnv](https://www.npmjs.com/package/dotenv)
 
-  - [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
+   - [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
 
-  - [Axios](https://www.npmjs.com/package/axios)
+   - [Axios](https://www.npmjs.com/package/axios)
 
-  - [OMDB API](http://www.omdbapi.com/)
+   - [OMDB API](http://www.omdbapi.com/)
 
-  -[Moment](https://www.npmjs.com/package/moment)
+   -[Moment](https://www.npmjs.com/package/moment)
   
 
 ## Usage
@@ -66,7 +66,7 @@
   ```
   ```
 
-  4. Install node packages (links [above](##Prerequisite))
+  4. Install node packages (links [above](Prerequisites))
 
     * axois
 
