@@ -70,9 +70,6 @@
      - Spotify client ID and secret
      - Bands in Town
 
-<<<<<<< HEAD
-  4. Install node packages (links [above](##Prerequisites))
-=======
   4. Install node packages (links [above](Prerequisites))
   
   5. Node commmands
@@ -86,7 +83,6 @@
           - ```node app.js concert-this <artist>```
      - Random Text Search
           - ```node app.js do-what-it-says```
->>>>>>> 938d0f261be9aaab6bd57e2eef6edac61a6415d3
 
   
 
