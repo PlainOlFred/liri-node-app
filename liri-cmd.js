@@ -84,13 +84,6 @@ LIRI = function() {
   }
 
   this.concertThis = (band) => {};
-
-    //    If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
-    //    If you haven't watched "Mr. Nobody," then you should: <http://www.imdb.com/title/tt0485947/>
-    // ​
-    //    It's on Netflix!
-  
-  
   this.doWhatItSays = (what) => {};
 
   
