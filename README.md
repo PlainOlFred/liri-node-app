@@ -1,20 +1,26 @@
 # liri-node-app
-> Multi-entetainment language base searcher
+  > Multi-entetainment language base searcher
 
 
 ## MVP
 
-- [x] CLI
+- [x] CLI for inputs
 
 - [x] Search Song
 
-     - [x] Request response node-spotify-
+     - [x] Request response from node-spotify-api
+     
+     - [x] Displays song information or ...
 
-     - [x] Displays default song 
+     - [x] Displays default song information 
       
 - [x] Search Movie
 
      - [x] Resquest response from OMDB 
+     
+     - [X] Displays movie information
+     
+     - [X] Display displays actor information
 
      - [x] Displays default movie
 
@@ -22,7 +28,13 @@
 
 - [x] Search Concert
 
+     - [x] Request response from BandInTown API
+     
+     - [x] Displays venue and date of artist/band's next show
+
 - [x] Search Random
+
+     - [x] Displays information from random.txt file
 
 ## Developmental features
 - [ ] Allow special characters(!,$,@) in searches
@@ -52,14 +64,26 @@
 
   1. Create log.txt file in local directory
 
-  2. Make copy of .env-sample  and insert your keys
+  2. Rename .env-sample to .env and insert your keys
     
      - OMDB 
      - Spotify client ID and secret
      - Bands in Town
 
   4. Install node packages (links [above](Prerequisites))
+  
+  5. Node commmands
+     - Movie search:
+          - By movie Title: ```node app.js movie-this <moive-title>```
+          - By Actor: ```node app.js actor-this <actor>```
+     - Song Search
+          - By Song: ```node app.js spotify-this-song <song title>```
+          - By Artistis: ```node app.js spotify-this-artist <artist/band>```
+     - Concert Search
+          - ```node app.js concert-this <artist>```
+     - Random Text Search
+          - ```node app.js do-what-it-says```
 
   
 
-## Example
+## Examples
