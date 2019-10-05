@@ -15,8 +15,11 @@ if(cmd){
       break;
   
     case 'spotify-this-song':
-      console.log(cmd);
       liri.spotifyThisSong(qus);
+      break;
+    
+    case 'spotify-this-artist':
+      liri.spotifyThisArtist(qus);
       break;
   
     case 'movie-this':
