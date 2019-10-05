@@ -10,7 +10,8 @@ if(cmd){
   switch(cmd) {
     case 'concert-this': 
       // console.log(cmd);
-      concertThis();
+      //for / use %252F, for ? use %253F, for * use %252A, and for " use %27C
+      liri.concertThis(qus);
       break;
   
     case 'spotify-this-song':
@@ -19,7 +20,6 @@ if(cmd){
       break;
   
     case 'movie-this':
-        
         if(qus) {
           liri.movieThis(qus);
         } else {
