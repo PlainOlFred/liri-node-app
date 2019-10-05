@@ -7,17 +7,17 @@
 
 - [x] Search Song
 
-      - [x] Request response node-spotify-
+     - [x] Request response node-spotify-
 
-      - [x] Displays default song 
+     - [x] Displays default song 
       
 - [x] Search Movie
 
-      - [x] Resquest response from OMDB 
+     - [x] Resquest response from OMDB 
 
-      - [x] Displays default movie
+     - [x] Displays default movie
 
-      - [x] Suggest a movie
+     - [x] Suggest a movie
 
 - [x] Search Concert
 
@@ -28,15 +28,19 @@
 
 ## Prerequisites
 
-    - [DotEnv](https://www.npmjs.com/package/dotenv)
+   
+   - [DotEnv](https://www.npmjs.com/package/dotenv)
 
-    - [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
+   
+   - [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
 
-    - [Axios](https://www.npmjs.com/package/axios)
+   
+   - [Axios](https://www.npmjs.com/package/axios)
 
-    - [OMDB API](http://www.omdbapi.com/)
-
-    -[Moment](https://www.npmjs.com/package/moment)
+  
+  - [OMDB API](http://www.omdbapi.com/)
+  
+  -[Moment](https://www.npmjs.com/package/moment)
   
 
 ## Usage
