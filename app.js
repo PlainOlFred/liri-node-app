@@ -3,7 +3,7 @@ const
 [moment, fs, liri] = [require('moment'), require('fs'), require('./liri-cmd')];
 let
 [cmd, qus] = [process.argv[2], process.argv.splice(3).join('%20')],
-header = ' '
+header = ' '// to log command and query
 
 
 if(cmd){
@@ -31,7 +31,15 @@ if(cmd){
       break;
   
     case 'do-what-it-says':
-      doWhatItSays();
+      fs.readFile('random.txt', 'utf8', function(err, data){
+        if(err) {
+          console.log(err);
+        }
+        [cmd, qus] = data.split(':')
+        console.log(cmd, qus) // **spotify-this-song I Want it That Way
+        liri.spotifyThisSong(qus);
+      });
+      
       break;
     default:
       console.log('not a command')
