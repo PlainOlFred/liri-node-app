@@ -5,6 +5,7 @@ let
 [cmd, qus] = [process.argv[2], process.argv.splice(3).join('%20')],
 header = ' '
 
+
 if(cmd){
   switch(cmd) {
     case 'concert-this': 
@@ -14,18 +15,19 @@ if(cmd){
   
     case 'spotify-this-song':
       console.log(cmd);
-      liri.spotifyThisSong(qus)
+      liri.spotifyThisSong(qus);
       break;
   
     case 'movie-this':
-        console.log(cmd);
-        if(qus) {
-          liri.movieThis(qus)
-        } else {
-          qus = 'mr+nobody' //Set Default
-          liri.movieThis(qus)
-        }
         
+        if(qus) {
+          liri.movieThis(qus);
+        } else {
+          //Set Default
+          liri.movieThis('mr+nobody');
+          // <http://www.imdb.com/title/tt0485947/>
+          console.log(`If you haven\'t watched Mr. Nobody\n\mIt's on Netflix`);
+        };
       break;
   
     case 'do-what-it-says':
