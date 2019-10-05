@@ -9,6 +9,8 @@
 - [x] Search Song
 
      - [x] Request response from node-spotify-api
+
+     - [x] Displays artist information
      
      - [x] Displays song information or ...
 

@@ -15,7 +15,7 @@ LIRI = function() {
       secret: process.env.SECRET
     });
     spotify
-    .request(`https://api.spotify.com/v1/search?q=${song}&type=track,artist&limit=1`)
+    .request(`https://api.spotify.com/v1/search?q=${song}&type=track&limit=1`)
     .then(function(data) {
       const 
       smallData = data
@@ -24,17 +24,54 @@ LIRI = function() {
         moment().format()
       ].join('\n'),
       showData = [
-        'Artist(s): ' + smallData['artists'][0]['name'],
+        title + ' spotify-this-song',
         'Song: ' + smallData['name'],
-        'Preview: ' + smallData['preview_url'],
+        'Artist(s): ' + smallData['artists'][0]['name'],
         'Album: ' + smallData['album']['name'],
+        ['Preview: ', (smallData['preview_url']) ? smallData['preview_url'] : 'No Preview'].join(' '),
       ].join('\n\n');
        
        
       fs.appendFile('log.txt', title + showData + divider, (error) => {
         if(error) {
           console.log(err)
-        } else {console.log(`Added to log:\n${showData}`);}
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
+      })
+      
+  })
+  .catch(function(err) {
+    console.error('Error occurred: ' + err); 
+  });
+
+  };
+  
+  this.spotifyThisArtist = function(artist) {
+    const spotify = new Spotify({
+      id: process.env.CLIENT_ID,
+      secret: process.env.SECRET
+    });
+    spotify
+    .request(`https://api.spotify.com/v1/search?q=${artist}&type=artist&limit=1`)
+    .then(function(data) {
+     
+      const
+      smallData = data['artists']['items'][0],
+      title = [
+        moment().format()
+      ].join('\n'),
+      showData = [
+        title + ' spotify-this-artist',
+        'Artist(s): ' + smallData['name'],
+        'Genre: ' + smallData['genres'][0],
+        'Followers: ' + smallData['followers']['total'],
+        'Trending: ' + smallData['popularity']+'%'
+      ].join('\n\n');
+       
+    
+      fs.appendFile('log.txt', title + showData + divider, (error) => {
+        if(error) {
+          console.log(err)
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
       
   })
@@ -43,6 +80,9 @@ LIRI = function() {
     });
 
   };
+
+
+
 
   this.movieThis = function(movie) {
     let 
@@ -99,11 +139,8 @@ LIRI = function() {
         'Venue: ' + response['venue']['name'],
         `Location: ${response['venue']['city']}, ${response['venue']['region']}`,
         'Date: ' + response['datetime'], // format time
-        (function (){
-          if(response['on-sale-datetime']) {
-            return 'Tickets Availible: ' + response['on-sale-datetime']
-          }
-        }())
+        ['Ticket go on sales: ', (response['on-sale-datetime']) ? response['on-sale-datetime'] : 'Check Back Soon'].join(' ')
+         
       ].join('\n\n');
         
       fs.appendFile('log.txt', showData + divider, (error) => {
