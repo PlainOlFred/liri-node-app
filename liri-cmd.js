@@ -94,16 +94,20 @@ LIRI = function() {
     .then(function(res) {
       let
       response = res
-      ['data'][0],
+        ['data'][0],
       showData = [
         'Venue: ' + response['venue']['name'],
         `Location: ${response['venue']['city']}, ${response['venue']['region']}`,
         'Date: ' + response['datetime'], // format time
-        (function (){
-          if(response['on-sale-datetime']) {
-            return 'Tickets Availible: ' + response['on-sale-datetime']
-          }
-        }())
+        // (function (){
+        //   if(response['on-sale-datetime']) {
+        //     return 'Tickets Availible: ' + response['on-sale-datetime']
+        //   }
+        //   return "null"
+        // }())
+        (() => {if(response['on-sale-datetime']){return 'Tickets Availible: ' + response['on-sale-datetime']}})()
+        // (() => response['on-sale-datetime'] ? 'Tickets Availible: ' + response['on-sale-datetime']:"null")()
+
       ].join('\n\n');
         
       fs.appendFile('log.txt', showData + divider, (error) => {
