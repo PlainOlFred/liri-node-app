@@ -1,33 +1,30 @@
 # liri-node-app
 
 
-![test](https://user-images.githubusercontent.com/52435014/66259861-694b1500-e77c-11e9-85dc-5f753c4cc2c0.gif)
-
-
 ## MVP
 
-* [x] CLI
+- [x] CLI
 
-* [x] Search Song
+- [x] Search Song
 
-      * [x] Request response node-spotify-
+      - [x] Request response node-spotify-
 
-      * [x] Displays default song 
+      - [x] Displays default song 
       
-* [x] Search Movie
+- [x] Search Movie
 
-      * [x] Resquest response from OMDB 
+      - [x] Resquest response from OMDB 
 
-      * [x] Displays default movie
+      - [x] Displays default movie
 
-      * [x] Suggest a movie
+      - [x] Suggest a movie
 
-* [x] Search Concert
+- [x] Search Concert
 
-* [x] Search Random
+- [x] Search Random
 
 ## Developmental features
-* [ ] 
+- [ ] allow special characters(!,$,@) in searches
 
 ## Prerequisites
 
