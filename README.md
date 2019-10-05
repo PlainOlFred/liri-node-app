@@ -1,4 +1,5 @@
 # liri-node-app
+> Multi-entetainment language base searcher
 
 
 ## MVP
@@ -24,7 +25,9 @@
 - [x] Search Random
 
 ## Developmental features
-- [ ] allow special characters(!,$,@) in searches
+- [ ] Allow special characters(!,$,@) in searches
+- [ ] Days until evnet (concert-this module)
+- [ ] Directions to the venuce (concert-this module)
 
 ## Prerequisites
 
@@ -40,7 +43,9 @@
   
   - [OMDB API](http://www.omdbapi.com/)
   
-  -[Moment](https://www.npmjs.com/package/moment)
+  - [Moment](https://www.npmjs.com/package/moment)
+  
+ 
   
 
 ## Usage
@@ -48,29 +53,13 @@
   1. Create log.txt file in local directory
 
   2. Make copy of .env-sample  and insert your keys
-    * OMDB 
-    * Spotify client ID and secret
-    * Bands in Town
-  
-  3. Set defaults in app.js
-    * Movie Deafault 
-
-  ```
-  else {
-        //Set Default
-        liri.movieThis('mr+nobody');
-        // <http://www.imdb.com/title/tt0485947/>
-        console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
-      };
-  ```
-
-    * Song Deafault
-
-  ```
-  ```
+    
+     - OMDB 
+     - Spotify client ID and secret
+     - Bands in Town
 
   4. Install node packages (links [above](Prerequisites))
 
-    * axois
+  
 
 ## Example
