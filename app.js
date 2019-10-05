@@ -9,13 +9,12 @@ header = ' '// to log command and query
 if(cmd){
   switch(cmd) {
     case 'concert-this': 
-      // console.log(cmd);
       //for / use %252F, for ? use %253F, for * use %252A, and for " use %27C
       liri.concertThis(qus);
       break;
   
     case 'spotify-this-song':
-      liri.spotifyThisSong(qus);
+      (qus) ? liri.spotifyThisSong(qus) : liri.spotifyThisSong('the+sign+ace-of-base');
       break;
     
     case 'spotify-this-artist':
@@ -23,14 +22,8 @@ if(cmd){
       break;
   
     case 'movie-this':
-        if(qus) {
-          liri.movieThis(qus);
-        } else {
-          //Set Default
-          liri.movieThis('mr+nobody');
-          // <http://www.imdb.com/title/tt0485947/>
-          console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
-        };
+      (qus) ? liri.movieThis(qus) : liri.movieThis('mr+body');
+      //  console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
       break;
   
     case 'do-what-it-says':
@@ -42,7 +35,6 @@ if(cmd){
         console.log(cmd, qus) // **spotify-this-song I Want it That Way
         liri.spotifyThisSong(qus);
       });
-      
       break;
     default:
       console.log('not a command')
