@@ -8,13 +8,13 @@
 
 * [x] Search Song
 
-      * [x] ] [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
+      * [x] Request response node-spotify-
 
       * [x] Displays default song 
       
 * [x] Search Movie
 
-      * [x] [OMDB API](http://www.omdbapi.com/)
+      * [x] Resquest response from OMDB 
 
       * [x] Displays default movie
 
@@ -27,7 +27,18 @@
 ## Developmental features
 * [ ] 
 
-(##Prerequisite)
+## (#Prerequisite)
+
+  - [DotEnv](https://www.npmjs.com/package/dotenv)
+
+  - [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
+
+  - [Axios](https://www.npmjs.com/package/axios)
+
+  - [OMDB API](http://www.omdbapi.com/)
+
+  -[Moment](https://www.npmjs.com/package/moment)
+  
 
 ## Usage
 
@@ -39,7 +50,6 @@
     * Bands in Town
   
   3. Set defaults in app.js
-
     * Movie Deafault 
 
   ```
