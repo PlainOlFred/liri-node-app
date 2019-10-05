@@ -95,6 +95,7 @@ LIRI = function() {
       responseType: 'json'
     })
     .then(function (response) {
+      console.log(response['data'])
       title = [
         moment().format()
       ].join('\n'),
@@ -112,7 +113,7 @@ LIRI = function() {
       fs.appendFile('log.txt', title + showData + divider, (error) => {
         if(error) {
           console.log(err)
-        } else {console.log(`Added to log:\n${showData}`);}
+        } else {console.log(`Added to log:\n${showData}/n`);}
       })
       })
     .catch(function(error) {
