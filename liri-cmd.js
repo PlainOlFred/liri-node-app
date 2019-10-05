@@ -47,8 +47,8 @@ LIRI = function() {
   this.movieThis = function(movie) {
     let 
     key = process.env.OMDB_KEY,
-    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie&`;
-
+    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie&`; 
+    
     axios({
       method: 'get',
       url,
@@ -66,9 +66,9 @@ LIRI = function() {
         'Maded in: ' + response['data']['Country'],
         'Plot: ' + response['data']['Plot'],
         'Cast: ' + response['data']['Actors']
-       
+      
       ].join('\n\n');
-         
+        
       fs.appendFile('log.txt', title + showData + divider, (error) => {
         if(error) {
           console.log(err)
@@ -78,6 +78,9 @@ LIRI = function() {
     .catch(function(error) {
       console.log(error)
     });
+      
+
+
   }
 
   this.concertThis = (band) => {};

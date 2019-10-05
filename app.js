@@ -1,9 +1,9 @@
-// import modules and keys
+// import modules and declare cariables
 const 
-moment = require('moment'),
-fs = require('fs'),
-liri = require('./liri-cmd'),
-[cmd, qus] = [process.argv[2], process.argv.splice(3).join('%20')];
+[moment, fs, liri] = [require('moment'), require('fs'), require('./liri-cmd')];
+let
+[cmd, qus] = [process.argv[2], process.argv.splice(3).join('%20')],
+header = ' '
 
 if(cmd){
   switch(cmd) {
@@ -19,7 +19,13 @@ if(cmd){
   
     case 'movie-this':
         console.log(cmd);
-        liri.movieThis(qus)
+        if(qus) {
+          liri.movieThis(qus)
+        } else {
+          qus = 'mr+nobody' //Set Default
+          liri.movieThis(qus)
+        }
+        
       break;
   
     case 'do-what-it-says':
