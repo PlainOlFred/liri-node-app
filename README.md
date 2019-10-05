@@ -18,7 +18,7 @@
 
       * [x] Displays default movie
 
-      * [x] Sugest a movie
+      * [x] Suggest a movie
 
 * [x] Search Concert
 
@@ -26,6 +26,8 @@
 
 ## Developmental features
 * [ ] 
+
+(##Prerequisite)
 
 ## Usage
 
@@ -40,18 +42,22 @@
 
     * Movie Deafault 
 
-    ```
-    else {
-          //Set Default
-          liri.movieThis('mr+nobody');
-          // <http://www.imdb.com/title/tt0485947/>
-          console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
-        };
-    ```
+  ```
+  else {
+        //Set Default
+        liri.movieThis('mr+nobody');
+        // <http://www.imdb.com/title/tt0485947/>
+        console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
+      };
+  ```
 
     * Song Deafault
 
-    ```
-    ```
+  ```
+  ```
+
+  4. Install node packages (links [above](##Prerequisite))
+
+    * axois
 
 ## Example
