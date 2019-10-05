@@ -78,15 +78,44 @@ LIRI = function() {
     .catch(function(error) {
       console.log(error)
     });
-      
-
-
+  
   }
 
-  this.concertThis = (band) => {};
-  this.doWhatItSays = (what) => {};
+  this.concertThis = (band) => {
+    let 
+    key = process.env.BIT_KEY,
+    url = `https://rest.bandsintown.com/artists/${band}/events?app_id=${key}`;
 
-  
+    axios({
+      method: 'get',
+      url,
+      responseType: 'json'
+    })
+    .then(function(res) {
+      let
+      response = res
+      ['data'][0],
+      showData = [
+        'Venue: ' + response['venue']['name'],
+        `Location: ${response['venue']['city']}, ${response['venue']['region']}`,
+        'Date: ' + response['datetime'], // format time
+        (function (){
+          if(response['on-sale-datetime']) {
+            return 'Tickets Availible: ' + response['on-sale-datetime']
+          }
+        }())
+      ].join('\n\n');
+        
+      fs.appendFile('log.txt', showData + divider, (error) => {
+        if(error) {
+          console.log(err)
+        } else {console.log(`Added to log:\n${showData}`);}
+      })
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
+  };
 }
 
 let liri = new LIRI;
