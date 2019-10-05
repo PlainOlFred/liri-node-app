@@ -26,7 +26,7 @@ if(cmd){
           //Set Default
           liri.movieThis('mr+nobody');
           // <http://www.imdb.com/title/tt0485947/>
-          console.log(`If you haven\'t watched Mr. Nobody\n\mIt's on Netflix`);
+          console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
         };
       break;
   
