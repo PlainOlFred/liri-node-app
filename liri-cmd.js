@@ -81,13 +81,10 @@ LIRI = function() {
 
   };
 
-
-
-
-  this.movieThisTitle = function(title) {
+  this.movieThis = function(movie) {
     let 
     key = process.env.OMDB_KEY,
-    url = `http://www.omdbapi.com/?apikey=${key}&t=${title}&type=movie&`; 
+    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`; 
     
     axios({
       method: 'get',
@@ -95,7 +92,6 @@ LIRI = function() {
       responseType: 'json'
     })
     .then(function (response) {
-      console.log(response['data'])
       title = [
         moment().format()
       ].join('\n'),
@@ -115,7 +111,7 @@ LIRI = function() {
       fs.appendFile('log.txt', title + showData + divider, (error) => {
         if(error) {
           console.log(err)
-        } else {console.log(`\nAdded to log:\n${showData}/n`);}
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
       })
     .catch(function(error) {
