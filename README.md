@@ -1,5 +1,5 @@
 # liri-node-app
-  > Multi-entetainment language base searcher
+  > Multientertainment Language Base Searcher
 
 
 ## MVP
@@ -8,7 +8,7 @@
 
 - [x] Search Song
 
-     - [x] Request response from node-spotify-api
+     - [x] Requests response from node-spotify-api
 
      - [x] Displays artist information
      
@@ -18,28 +18,28 @@
       
 - [x] Search Movie
 
-     - [x] Resquest response from OMDB 
+     - [x] Resquests response from OMDB 
      
-     - [X] Displays movie information
+     - [X] Displays  movie information or ..
 
-     - [x] Displays default movie
+     - [x] Displays default movie, and
 
-     - [x] Suggest a movie
+     - [x] Suggests a movie
 
 - [x] Search Concert
 
-     - [x] Request response from BandInTown API
+     - [x] Requests response from BandInTown API
      
      - [x] Displays venue, date, and location of artist/band's next show
 
 - [x] Search Random
 
-     - [x] Displays information from random.txt file
+     - [x] Executes cmd and query from random.txt file
 
 ## Developmental features
 - [ ] Allow special characters(!,$,@) in searches
-- [ ] Days until evnet (concert-this module)
-- [ ] Directions to the venuce (concert-this module)
+- [ ] Display until evnet (concert-this module)
+- [ ] Giv directions to the venuce (concert-this module)
 
 ## Prerequisites
 
@@ -54,6 +54,7 @@
 
   
   - [OMDB API](http://www.omdbapi.com/)
+  
   
   - [Moment](https://www.npmjs.com/package/moment)
   
