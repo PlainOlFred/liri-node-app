@@ -24,7 +24,11 @@ LIRI = function() {
         moment().format(), ' spotify-this-song'
       ].join('\n'),
       showData = [
+<<<<<<< HEAD
         title,
+=======
+        title + ' spotify-this-song',
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
         'Song: ' + smallData['name'],
         'Artist(s): ' + smallData['artists'][0]['name'],
         'Album: ' + smallData['album']['name'],
@@ -57,7 +61,11 @@ LIRI = function() {
       const
       smallData = data['artists']['items'][0],
       title = [
+<<<<<<< HEAD
         moment().format(), 'spotify-this-artist'
+=======
+        moment().format()
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
       ].join('\n'),
       showData = [
         title + ' spotify-this-artist',
@@ -84,8 +92,12 @@ LIRI = function() {
   this.movieThis = (movie) => {
     let 
     key = process.env.OMDB_KEY,
+<<<<<<< HEAD
     url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`,
     title; 
+=======
+    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`; 
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
     
     axios({
       method: 'get',
@@ -144,8 +156,22 @@ LIRI = function() {
         'Venue: ' + response['venue']['name'],
         `Location: ${response['venue']['city']}, ${response['venue']['region']}`,
         'Date: ' + response['datetime'], // format time
+<<<<<<< HEAD
         ['Ticket go on sales: ', (response['on-sale-datetime']) ? response['on-sale-datetime'] : 'Check Back Soon'].join(' ')
          
+=======
+
+        // (function (){
+        //   if(response['on-sale-datetime']) {
+        //     return 'Tickets Availible: ' + response['on-sale-datetime']
+        //   }
+        //   return "null"
+        // }())
+        (() => {if(response['on-sale-datetime']){return 'Tickets Availible: ' + response['on-sale-datetime']}})()
+        // (() => response['on-sale-datetime'] ? 'Tickets Availible: ' + response['on-sale-datetime']:"null")()
+
+
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
       ].join('\n\n');
         
       fs.appendFile('log.txt',title + showData + divider, (error) => {

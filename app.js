@@ -9,6 +9,7 @@ header = ' '// to log command and query
 if(cmd){
   switch(cmd) {
     case 'concert-this': 
+<<<<<<< HEAD
       liri.concertThis(qus); //for / use %252F, for ? use %253F, for * use %252A, and for " use %27C
       break;
   
@@ -23,8 +24,7 @@ if(cmd){
   
     case 'movie-this':
       (qus) ? liri.movieThis(qus) : (liri.movieThis('mr%20nobody'), 
-      console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`)); // <http://www.imdb.com/title/tt0485947/>
-        
+      console.log(`\nIf you haven\'t watched Mr. Nobody\n\nIt's on Netflix`)); // <http://www.imdb.com/title/tt0485947/>
       break;
   
     case 'do-what-it-says':
@@ -41,7 +41,10 @@ if(cmd){
         };
          
       });
+<<<<<<< HEAD
   
+=======
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
       break;
     default:
       console.log('not a command')
