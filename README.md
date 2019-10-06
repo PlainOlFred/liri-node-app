@@ -87,4 +87,11 @@
   
 
 ## Examples
-https://github.com/PlainOlFred/liri-node-app/issues/21#issue-503046979
+
+### Demonstrations
+
+#### spotify-this-song
+![spotify-this-song](https://user-images.githubusercontent.com/52435014/66263888-1a26d380-e7c0-11e9-93b8-9a4e7a62b886.gif)
+
+#### spotify-this-artist
+
