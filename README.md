@@ -9,6 +9,8 @@
 - [x] Search Song
 
      - [x] Request response from node-spotify-api
+
+     - [x] Displays artist information
      
      - [x] Displays song information or ...
 
@@ -19,8 +21,6 @@
      - [x] Resquest response from OMDB 
      
      - [X] Displays movie information
-     
-     - [X] Display displays actor information
 
      - [x] Displays default movie
 
@@ -30,7 +30,7 @@
 
      - [x] Request response from BandInTown API
      
-     - [x] Displays venue and date of artist/band's next show
+     - [x] Displays venue, date, and location of artist/band's next show
 
 - [x] Search Random
 
