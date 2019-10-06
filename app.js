@@ -21,9 +21,9 @@ if(cmd){
       liri.spotifyThisArtist(qus);
       break;
   
-    case 'movie-this':
-      (qus) ? liri.movieThis(qus) : liri.movieThis('mr+body');
-      //  console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
+    case 'movie-this-title':
+      (qus) ? liri.movieThisTitle(qus) : liri.movieThisTitle('mr+body');
+       console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
       break;
   
     case 'do-what-it-says':
