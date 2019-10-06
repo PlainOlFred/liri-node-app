@@ -9,32 +9,42 @@ header = ' '// to log command and query
 if(cmd){
   switch(cmd) {
     case 'concert-this': 
-      //for / use %252F, for ? use %253F, for * use %252A, and for " use %27C
-      liri.concertThis(qus);
+<<<<<<< HEAD
+      liri.concertThis(qus); //for / use %252F, for ? use %253F, for * use %252A, and for " use %27C
       break;
   
     case 'spotify-this-song':
-      (qus) ? liri.spotifyThisSong(qus) : liri.spotifyThisSong('the+sign+ace-of-base');
+      (qus) ? liri.spotifyThisSong(qus) : liri.spotifyThisSong('ace%20base%20the%20sign') ;
       break;
     
     case 'spotify-this-artist':
+      console.log(cmd);
       liri.spotifyThisArtist(qus);
       break;
   
     case 'movie-this':
-      (qus) ? liri.movieThis(qus) : (liri.movieThis('mr+nobody'),
-      console.log(`\nIf you haven\'t watched Mr. Nobody\n\nIt's on Netflix`));
+      (qus) ? liri.movieThis(qus) : (liri.movieThis('mr%20nobody'), 
+      console.log(`\nIf you haven\'t watched Mr. Nobody\n\nIt's on Netflix`)); // <http://www.imdb.com/title/tt0485947/>
       break;
   
     case 'do-what-it-says':
-      fs.readFile('random.txt', 'utf8', function(err, data){
+      fs.readFile('random.txt', 'utf8', function (err, data) {
         if(err) {
           console.log(err);
         }
-        [cmd, qus] = data.split(':')
-        console.log(cmd, qus) // **spotify-this-song I Want it That Way
-        liri.spotifyThisSong(qus);
+        [cmd, qus] = data.split(',');
+        switch(cmd) {
+          case 'concert-this': liri.concertThis(qus); break;
+          case 'spotify-this-song': liri.spotifyThisSong(qus); break;
+          case 'spotiy-this-artist': liri.spotifyThisArtist(qus); break;
+          case 'movie-this': liri.movieThis(qus); break;
+        };
+         
       });
+<<<<<<< HEAD
+  
+=======
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
       break;
     default:
       console.log('not a command')

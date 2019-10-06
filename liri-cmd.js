@@ -21,10 +21,14 @@ LIRI = function() {
       smallData = data
       ['tracks']['items'][0],
       title = [
-        moment().format()
+        moment().format(), ' spotify-this-song'
       ].join('\n'),
       showData = [
+<<<<<<< HEAD
+        title,
+=======
         title + ' spotify-this-song',
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
         'Song: ' + smallData['name'],
         'Artist(s): ' + smallData['artists'][0]['name'],
         'Album: ' + smallData['album']['name'],
@@ -57,7 +61,11 @@ LIRI = function() {
       const
       smallData = data['artists']['items'][0],
       title = [
+<<<<<<< HEAD
+        moment().format(), 'spotify-this-artist'
+=======
         moment().format()
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
       ].join('\n'),
       showData = [
         title + ' spotify-this-artist',
@@ -84,18 +92,24 @@ LIRI = function() {
   this.movieThis = (movie) => {
     let 
     key = process.env.OMDB_KEY,
+<<<<<<< HEAD
+    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`,
+    title; 
+=======
     url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`; 
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
     
     axios({
       method: 'get',
       url,
       responseType: 'json'
     })
-    .then(function (response) {
+    .then((response) => {
       title = [
-        moment().format()
-      ].join('\n'),
+        moment().format(), 'movie-this'
+      ].join(' '),
       showData = [
+        title,
         'Title: ' + response['data']['Title'],
         'Year: ' + response['data']['Year'],
         'IMDB Rating: ' + response['data']['Ratings'][0]['Value'],
@@ -114,7 +128,7 @@ LIRI = function() {
         } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
       })
-    .catch(function(error) {
+    .catch((error) => {
       console.log(error)
     });
   
@@ -132,12 +146,20 @@ LIRI = function() {
     })
     .then(function(res) {
       let
+      title = [
+        moment().format(), 'concert-this'
+      ].join(' '),
       response = res
-        ['data'][0],
+      ['data'][0],
       showData = [
+        title,
         'Venue: ' + response['venue']['name'],
         `Location: ${response['venue']['city']}, ${response['venue']['region']}`,
         'Date: ' + response['datetime'], // format time
+<<<<<<< HEAD
+        ['Ticket go on sales: ', (response['on-sale-datetime']) ? response['on-sale-datetime'] : 'Check Back Soon'].join(' ')
+         
+=======
 
         // (function (){
         //   if(response['on-sale-datetime']) {
@@ -149,9 +171,10 @@ LIRI = function() {
         // (() => response['on-sale-datetime'] ? 'Tickets Availible: ' + response['on-sale-datetime']:"null")()
 
 
+>>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
       ].join('\n\n');
         
-      fs.appendFile('log.txt', showData + divider, (error) => {
+      fs.appendFile('log.txt',title + showData + divider, (error) => {
         if(error) {
           console.log(err)
         } else {console.log(`\nAdded to log:\n${showData}\n`);}
@@ -161,6 +184,7 @@ LIRI = function() {
       console.log(error)
     })
   };
+
 }
 
 let liri = new LIRI;
