@@ -9,7 +9,7 @@ divider = '\n--------------------\n';
 
 LIRI = function() {
 
-  this.spotifyThisSong = function(song) {
+  this.spotifyThisSong = (song) => {
     const spotify = new Spotify({
       id: process.env.CLIENT_ID,
       secret: process.env.SECRET
@@ -45,7 +45,7 @@ LIRI = function() {
 
   };
   
-  this.spotifyThisArtist = function(artist) {
+  this.spotifyThisArtist = (artist) => {
     const spotify = new Spotify({
       id: process.env.CLIENT_ID,
       secret: process.env.SECRET
@@ -81,7 +81,7 @@ LIRI = function() {
 
   };
 
-  this.movieThis = function(movie) {
+  this.movieThis = (movie) => {
     let 
     key = process.env.OMDB_KEY,
     url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`; 
