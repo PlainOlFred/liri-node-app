@@ -7,7 +7,7 @@ Spotify = require('node-spotify-api'),
 fs = require('fs'),
 divider = '\n--------------------\n';
 
-LIRI = function() {
+LIRI = function () {
 
   this.spotifyThisSong = (song) => {
     const spotify = new Spotify({
@@ -16,19 +16,15 @@ LIRI = function() {
     });
     spotify
     .request(`https://api.spotify.com/v1/search?q=${song}&type=track&limit=1`)
-    .then(function(data) {
+    .then((data) => {
       const 
       smallData = data
       ['tracks']['items'][0],
       title = [
-        moment().format(), ' spotify-this-song'
+        moment().format('MM/DD/YYYY'), ' spotify-this-song'
       ].join('\n'),
       showData = [
-<<<<<<< HEAD
-        title,
-=======
         title + ' spotify-this-song',
->>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
         'Song: ' + smallData['name'],
         'Artist(s): ' + smallData['artists'][0]['name'],
         'Album: ' + smallData['album']['name'],
@@ -43,7 +39,7 @@ LIRI = function() {
       })
       
   })
-  .catch(function(err) {
+  .catch((err) => {
     console.error('Error occurred: ' + err); 
   });
 
@@ -56,16 +52,12 @@ LIRI = function() {
     });
     spotify
     .request(`https://api.spotify.com/v1/search?q=${artist}&type=artist&limit=1`)
-    .then(function(data) {
+    .then((data) => {
      
       const
       smallData = data['artists']['items'][0],
       title = [
-<<<<<<< HEAD
-        moment().format(), 'spotify-this-artist'
-=======
-        moment().format()
->>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
+        moment().format('MM/DD/YYYY'), 'spotify-this-artist'
       ].join('\n'),
       showData = [
         title + ' spotify-this-artist',
@@ -83,7 +75,7 @@ LIRI = function() {
       })
       
   })
-    .catch(function(err) {
+    .catch((err) => {
       console.error('Error occurred: ' + err); 
     });
 
@@ -92,12 +84,8 @@ LIRI = function() {
   this.movieThis = (movie) => {
     let 
     key = process.env.OMDB_KEY,
-<<<<<<< HEAD
     url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`,
     title; 
-=======
-    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`; 
->>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
     
     axios({
       method: 'get',
@@ -106,7 +94,7 @@ LIRI = function() {
     })
     .then((response) => {
       title = [
-        moment().format(), 'movie-this'
+        moment().format('MM/DD/YYYY'), 'movie-this'
       ].join(' '),
       showData = [
         title,
@@ -144,10 +132,10 @@ LIRI = function() {
       url,
       responseType: 'json'
     })
-    .then(function(res) {
+    .then((res) => {
       let
       title = [
-        moment().format(), 'concert-this'
+        moment().format('MM/DD/YY'), 'concert-this'
       ].join(' '),
       response = res
       ['data'][0],
@@ -155,23 +143,8 @@ LIRI = function() {
         title,
         'Venue: ' + response['venue']['name'],
         `Location: ${response['venue']['city']}, ${response['venue']['region']}`,
-        'Date: ' + response['datetime'], // format time
-<<<<<<< HEAD
-        ['Ticket go on sales: ', (response['on-sale-datetime']) ? response['on-sale-datetime'] : 'Check Back Soon'].join(' ')
-         
-=======
-
-        // (function (){
-        //   if(response['on-sale-datetime']) {
-        //     return 'Tickets Availible: ' + response['on-sale-datetime']
-        //   }
-        //   return "null"
-        // }())
-        (() => {if(response['on-sale-datetime']){return 'Tickets Availible: ' + response['on-sale-datetime']}})()
-        // (() => response['on-sale-datetime'] ? 'Tickets Availible: ' + response['on-sale-datetime']:"null")()
-
-
->>>>>>> 3313ca0056e942723df4b6894734d05418900bfd
+        'Date: ' + response['datetime'], 
+        ['Ticket go on sales: ', (response['on-sale-datetime']) ? response['on-sale-datetime'] : 'Check Back Soon'].join(' ') 
       ].join('\n\n');
         
       fs.appendFile('log.txt',title + showData + divider, (error) => {
@@ -180,7 +153,7 @@ LIRI = function() {
         } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
     })
-    .catch(function(error) {
+    .catch((error) => {
       console.log(error)
     })
   };
