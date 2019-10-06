@@ -9,7 +9,7 @@ divider = '\n--------------------\n';
 
 LIRI = function() {
 
-  this.spotifyThisSong = function(song) {
+  this.spotifyThisSong = (song) => {
     const spotify = new Spotify({
       id: process.env.CLIENT_ID,
       secret: process.env.SECRET
@@ -45,7 +45,7 @@ LIRI = function() {
 
   };
   
-  this.spotifyThisArtist = function(artist) {
+  this.spotifyThisArtist = (artist) => {
     const spotify = new Spotify({
       id: process.env.CLIENT_ID,
       secret: process.env.SECRET
@@ -81,13 +81,10 @@ LIRI = function() {
 
   };
 
-
-
-
-  this.movieThis = function(movie) {
+  this.movieThis = (movie) => {
     let 
     key = process.env.OMDB_KEY,
-    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie&`; 
+    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`; 
     
     axios({
       method: 'get',
@@ -95,7 +92,6 @@ LIRI = function() {
       responseType: 'json'
     })
     .then(function (response) {
-      console.log(response['data'])
       title = [
         moment().format()
       ].join('\n'),
@@ -106,14 +102,16 @@ LIRI = function() {
         'Rotten Tomato\'s: ' + response['data']['Ratings'][0]['Value'],
         'Maded in: ' + response['data']['Country'],
         'Plot: ' + response['data']['Plot'],
-        'Cast: ' + response['data']['Actors']
+        'Language: ' + response['data']['Language'],
+        'Cast: ' + response['data']['Actors'],
+        'Box Office: ' + response['data']['BoxOffice']
       
       ].join('\n\n');
         
       fs.appendFile('log.txt', title + showData + divider, (error) => {
         if(error) {
           console.log(err)
-        } else {console.log(`Added to log:\n${showData}/n`);}
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
       })
     .catch(function(error) {

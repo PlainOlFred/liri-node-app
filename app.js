@@ -22,8 +22,8 @@ if(cmd){
       break;
   
     case 'movie-this':
-      (qus) ? liri.movieThis(qus) : liri.movieThis('mr+body');
-      //  console.log(`If you haven\'t watched Mr. Nobody\n\nIt's on Netflix`);
+      (qus) ? liri.movieThis(qus) : (liri.movieThis('mr+nobody'),
+      console.log(`\nIf you haven\'t watched Mr. Nobody\n\nIt's on Netflix`));
       break;
   
     case 'do-what-it-says':
