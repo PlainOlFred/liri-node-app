@@ -149,7 +149,7 @@ LIRI = function() {
       fs.appendFile('log.txt', showData + divider, (error) => {
         if(error) {
           console.log(err)
-        } else {console.log(`Added to log:\n${showData}\n`);}
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
     })
     .catch(function(error) {
