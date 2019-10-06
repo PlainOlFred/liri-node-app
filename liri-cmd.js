@@ -9,32 +9,69 @@ divider = '\n--------------------\n';
 
 LIRI = function() {
 
-  this.spotifyThisSong = function(song) {
+  this.spotifyThisSong = (song) => {
     const spotify = new Spotify({
       id: process.env.CLIENT_ID,
       secret: process.env.SECRET
     });
     spotify
-    .request(`https://api.spotify.com/v1/search?q=${song}&type=track,artist&limit=1`)
+    .request(`https://api.spotify.com/v1/search?q=${song}&type=track&limit=1`)
     .then(function(data) {
       const 
       smallData = data
       ['tracks']['items'][0],
       title = [
-        moment().format()
+        moment().format(), ' spotify-this-song'
       ].join('\n'),
       showData = [
-        'Artist(s): ' + smallData['artists'][0]['name'],
+        title,
         'Song: ' + smallData['name'],
-        'Preview: ' + smallData['preview_url'],
+        'Artist(s): ' + smallData['artists'][0]['name'],
         'Album: ' + smallData['album']['name'],
+        ['Preview: ', (smallData['preview_url']) ? smallData['preview_url'] : 'No Preview'].join(' '),
       ].join('\n\n');
        
        
       fs.appendFile('log.txt', title + showData + divider, (error) => {
         if(error) {
           console.log(err)
-        } else {console.log(`Added to log:\n${showData}`);}
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
+      })
+      
+  })
+  .catch(function(err) {
+    console.error('Error occurred: ' + err); 
+  });
+
+  };
+  
+  this.spotifyThisArtist = (artist) => {
+    const spotify = new Spotify({
+      id: process.env.CLIENT_ID,
+      secret: process.env.SECRET
+    });
+    spotify
+    .request(`https://api.spotify.com/v1/search?q=${artist}&type=artist&limit=1`)
+    .then(function(data) {
+     
+      const
+      smallData = data['artists']['items'][0],
+      title = [
+        moment().format(), 'spotify-this-artist'
+      ].join('\n'),
+      showData = [
+        title + ' spotify-this-artist',
+        'Artist(s): ' + smallData['name'],
+        'Genre: ' + smallData['genres'][0],
+        'Followers: ' + smallData['followers']['total'],
+        'Trending: ' + smallData['popularity']+'%'
+      ].join('\n\n');
+       
+    
+      fs.appendFile('log.txt', title + showData + divider, (error) => {
+        if(error) {
+          console.log(err)
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
       
   })
@@ -44,38 +81,42 @@ LIRI = function() {
 
   };
 
-  this.movieThis = function(movie) {
+  this.movieThis = (movie) => {
     let 
     key = process.env.OMDB_KEY,
-    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie&`; 
+    url = `http://www.omdbapi.com/?apikey=${key}&t=${movie}&type=movie`,
+    title; 
     
     axios({
       method: 'get',
       url,
       responseType: 'json'
     })
-    .then(function (response) {
+    .then((response) => {
       title = [
-        moment().format()
-      ].join('\n'),
+        moment().format(), 'movie-this'
+      ].join(' '),
       showData = [
+        title,
         'Title: ' + response['data']['Title'],
         'Year: ' + response['data']['Year'],
         'IMDB Rating: ' + response['data']['Ratings'][0]['Value'],
         'Rotten Tomato\'s: ' + response['data']['Ratings'][0]['Value'],
         'Maded in: ' + response['data']['Country'],
         'Plot: ' + response['data']['Plot'],
-        'Cast: ' + response['data']['Actors']
+        'Language: ' + response['data']['Language'],
+        'Cast: ' + response['data']['Actors'],
+        'Box Office: ' + response['data']['BoxOffice']
       
       ].join('\n\n');
         
       fs.appendFile('log.txt', title + showData + divider, (error) => {
         if(error) {
           console.log(err)
-        } else {console.log(`Added to log:\n${showData}`);}
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
       })
-    .catch(function(error) {
+    .catch((error) => {
       console.log(error)
     });
   
@@ -93,33 +134,31 @@ LIRI = function() {
     })
     .then(function(res) {
       let
+      title = [
+        moment().format(), 'concert-this'
+      ].join(' '),
       response = res
-        ['data'][0],
+      ['data'][0],
       showData = [
+        title,
         'Venue: ' + response['venue']['name'],
         `Location: ${response['venue']['city']}, ${response['venue']['region']}`,
         'Date: ' + response['datetime'], // format time
-        // (function (){
-        //   if(response['on-sale-datetime']) {
-        //     return 'Tickets Availible: ' + response['on-sale-datetime']
-        //   }
-        //   return "null"
-        // }())
-        (() => {if(response['on-sale-datetime']){return 'Tickets Availible: ' + response['on-sale-datetime']}})()
-        // (() => response['on-sale-datetime'] ? 'Tickets Availible: ' + response['on-sale-datetime']:"null")()
-
+        ['Ticket go on sales: ', (response['on-sale-datetime']) ? response['on-sale-datetime'] : 'Check Back Soon'].join(' ')
+         
       ].join('\n\n');
         
-      fs.appendFile('log.txt', showData + divider, (error) => {
+      fs.appendFile('log.txt',title + showData + divider, (error) => {
         if(error) {
           console.log(err)
-        } else {console.log(`Added to log:\n${showData}`);}
+        } else {console.log(`\nAdded to log:\n${showData}\n`);}
       })
     })
     .catch(function(error) {
       console.log(error)
     })
   };
+
 }
 
 let liri = new LIRI;
