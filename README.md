@@ -41,7 +41,7 @@
 - [ ] Display until evnet (concert-this module)
 - [ ] Giv directions to the venuce (concert-this module)
 
-## Prerequisites
+## (#Prerequisites)
 
    
    - [DotEnv](https://www.npmjs.com/package/dotenv)
@@ -71,7 +71,7 @@
      - Spotify client ID and secret
      - Bands in Town
 
-  4. Install node packages (links [above](Prerequisites))
+  4. Install node packages (links [above](#Prerequisites))
   
   5. Node commmands
      - Movie search:
