@@ -79,7 +79,6 @@
           - By Actor: ```node app.js actor-this <actor>```
      - Song Search
           - By Song: ```node app.js spotify-this-song <song title>```
-          - By Artistis: ```node app.js spotify-this-artist <artist/band>```
      - Concert Search
           - ```node app.js concert-this <artist>```
      - Random Text Search
