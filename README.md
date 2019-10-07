@@ -91,30 +91,25 @@
 ### Demonstrations
 
 #### spotify-this-song
-![spotify-this-song](https://user-images.githubusercontent.com/52435014/66263888-1a26d380-e7c0-11e9-93b8-9a4e7a62b886.gif)
+![spotify-this-song](https://user-images.githubusercontent.com/52435014/66310850-cc4ec000-e8d2-11e9-8710-919abd75475f.gif)
 
 #### spotify-this-artist
-![spotify-artist](https://user-images.githubusercontent.com/52435014/66264007-05980a80-e7c3-11e9-97ba-e0e31d561894.gif)
+![spotify-this-artist](https://user-images.githubusercontent.com/52435014/66311057-310a1a80-e8d3-11e9-9ada-f26539bce06d.gif)
 
 #### spotify-this-song (default)
-
-![spotify-song_default](https://user-images.githubusercontent.com/52435014/66263981-86a2d200-e7c2-11e9-9dd6-c60836718a01.gif)
+![spotify-this-song_default](https://user-images.githubusercontent.com/52435014/66311222-978f3880-e8d3-11e9-8d07-86fdff330fc1.gif)
 
 #### movie-this
-
-![movie-this](https://user-images.githubusercontent.com/52435014/66264026-41cb6b00-e7c3-11e9-9322-ab294539e7b0.gif)
+![movie-this](https://user-images.githubusercontent.com/52435014/66311376-ec32b380-e8d3-11e9-9dd7-25e167cbad89.gif)
 
 #### movie-this (default)
-
-![movies-this_default](https://user-images.githubusercontent.com/52435014/66264030-51e34a80-e7c3-11e9-9c66-e8c46c15f56f.gif)
+![movie-this_default](https://user-images.githubusercontent.com/52435014/66311524-47fd3c80-e8d4-11e9-9541-2003a16da5b1.gif)
 
 #### concert-this
-
-![concert-this](https://user-images.githubusercontent.com/52435014/66264033-6293c080-e7c3-11e9-957d-080d75dddc6a.gif)
+![concert-this](https://user-images.githubusercontent.com/52435014/66311683-9f031180-e8d4-11e9-9c8c-52dc5950ab79.gif)
 
 #### do-what-it-says
-
-![do-what-it-says](https://user-images.githubusercontent.com/52435014/66264037-73443680-e7c3-11e9-9e62-f5b4be149f0e.gif)
+![do-what-it-says](https://user-images.githubusercontent.com/52435014/66311809-facd9a80-e8d4-11e9-8c02-01d9024a0c8d.gif)
 
 #### appendFile log.txt
 
